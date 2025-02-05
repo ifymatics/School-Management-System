@@ -7,8 +7,8 @@ module.exports = ({ meta, config, managers, cache }) => {
 
   // Configure rate limiter with Redis store
   const limiter = rateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minute (for testing)
-    max: 5, // Limit each IP to 1 request per windowMs (for testing)
+    windowMs: 15 * 60 * 1000, // 1 minute (for testing)
+    max: 100, // Limit each IP to 1 request per windowMs (for testing)
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     ...(redis && {
